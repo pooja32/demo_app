@@ -1,0 +1,24 @@
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<!DOCTYPE html>
+<html>
+<head>
+ <title><%= yield(:title) %> | Ruby on Rails Tutorial Sample App</title>
+
+<%= csrf_meta_tag %>
+<%= render 'layouts/stylesheets' %>
+</head>
+<body>
+<div class="container">
+<%= render 'layouts/header' %>
+ <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+ <% end %>
+<section class="round">
+<%= yield %>
+</section>
+<%= render 'layouts/footer' %>
+<%= debug(params) if Rails.env.development? %>
+</div>
+
+</body>
+</html>
